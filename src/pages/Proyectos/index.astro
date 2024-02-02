@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SliderV4 from "../../components/SliderV4.astro";
+---
+
+<Layout title="proyectos">
+  <div class="proyect-container">
+    <header class="proyect__header">
+      <h1 class="title--lg">ultimos proyectos</h1>
+      <p class="proyect__text">
+        Explora la selección que hemos preparado para ti
+      </p>
+    </header>
+    <SliderV4 />
+  </div>
+
+  <style>
+    .proyect-container {
+      height: 100%;
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .proyect__header {
+      display: flex;
+      align-items: center;
+      padding: var(--global-margin);
+      justify-content: space-between;
+      border-bottom: var(--global-border-size) solid var(--global-border-color);
+      flex: 0 0 auto;
+    }
+    .proyect__text {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      width: calc((100vw - var(--nav-height)) / 2);
+      max-width: 50rem;
+      font-family: var(--font-light);
+      text-align: center;
+    }
+  </style>
+</Layout>

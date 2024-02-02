@@ -1,0 +1,62 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+import "../styles/reset.css";
+import "../styles/global.css";
+import "../styles/headings.css";
+import "../styles/animations.css";
+
+import { ViewTransitions } from "astro:transitions";
+
+import NavMain from "../components/layout/nav/NavMain.astro";
+import Loader from "../components/Loader.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <ViewTransitions />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+    <NavMain transition:persist />
+    <Loader />
+    <style is:global>
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+      body {
+        height: 100vh;
+        position: relative;
+      }
+      main {
+        max-height: calc(100% - var(--nav-height));
+        width: 100%;
+        height: calc(100% - var(--nav-height));
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </body>
+</html>

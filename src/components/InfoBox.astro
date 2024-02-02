@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  width?: "max-content";
+  alignText: "left" | "center" | "right";
+}
+const { title, text, width, alignText } = Astro.props;
+---
+
+<div class="info-box">
+  <span class="info-box__title">{title}</span>
+  <span class="info-box__text">{text}</span>
+</div>
+
+<style define:vars={{ width, alignText }}>
+  .info-box {
+    width: var(--width);
+    min-width: 7rem;
+    text-align: var(--alignText);
+  }
+  .info-box__title {
+    font-family: var(--font-medium);
+    font-size: clamp(1.2rem, 3vw, 1.9rem);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+  .info-box__text {
+    font-family: var(--font-light);
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  }
+</style>

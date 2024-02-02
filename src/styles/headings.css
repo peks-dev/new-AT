@@ -1,0 +1,25 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  color: currentColor;
+  text-wrap: balance;
+  word-break: keep-all;
+}
+
+.title--xlg {
+  font-size: clamp(4.8rem, 10vw, 10rem);
+}
+.title--lg {
+  font-size: clamp(3rem, 8vw, 7.5rem);
+}
+.title--md {
+  font-size: clamp(2.1rem, 6vw, 5rem);
+}
+.title--sm {
+  font-size: clamp(2.4rem, 5vw, 5rem);
+}

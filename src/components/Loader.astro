@@ -1,0 +1,62 @@
+<div class="loader-wrap" id="loader">
+  <!-- Puedes personalizar el contenido de tu pantalla de carga aquí -->
+  <div class="loader"></div>
+</div>
+
+<script is:inline>
+  document.addEventListener("astro:before-preparation", () => {
+    document.querySelector("#loader").classList.add("show");
+  });
+  document.addEventListener("astro:after-preparation", () => {
+    document.querySelector("#loader").classList.remove("show");
+  });
+</script>
+
+<style>
+  /* Estilos para el loader */
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    margin: auto;
+  }
+  .show {
+    display: flex;
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Estilos para el contenedor del loader */
+  #loader {
+    position: fixed;
+    z-index: 9999; /* Asegura que esté en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

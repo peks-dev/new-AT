@@ -1,0 +1,46 @@
+---
+import Btn from "../layout/Btn.astro";
+import { services } from "../../lib/services";
+---
+
+<ul class="services__btns-wrapper">
+  <li class="services__btn-container active">
+    <Btn variant="active btn--slider-tab">{services.fabricacion.tabName}</Btn>
+  </li>
+  <li class="services__btn-container">
+    <Btn variant="btn--slider-tab">{services.residencial.tabName}</Btn>
+  </li>
+  <li class="services__btn-container">
+    <Btn variant="btn--slider-tab">{services.empresarial.tabName}</Btn>
+  </li>
+  <div class="services__btns-bg"></div>
+</ul>
+
+<script src="./sliderTabs.js"></script>
+
+<style>
+  .services__btns-wrapper {
+    border: var(--global-border-size) solid var(--global-border-color);
+    border-bottom: none;
+    display: flex;
+    height: var(--nav-height);
+    position: relative;
+  }
+  .services__btn-container {
+    flex-grow: 1;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Btn interaction */
+  .services__btns-bg {
+    height: 100%;
+    width: 33.33%;
+    background-color: var(--secundary-dark);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: var(--global-border-size) solid var(--white);
+    transition: transform 0.2s ease-in;
+  }
+</style>

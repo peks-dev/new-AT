@@ -1,0 +1,69 @@
+---
+interface Props {
+  variant?: string;
+  id?: string;
+  toolTip?: string;
+}
+
+const { variant, id, toolTip } = Astro.props;
+---
+
+<button class=`btn ${variant}` id={id} type="button" title={toolTip}>
+  <slot />
+</button>
+
+<style is:global>
+  .btn {
+    background-color: var(--white);
+    color: var(--secundary-dark);
+    font-family: var(--font-regular);
+    font-size: clamp(1.3rem, 4vw, 2.2rem);
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    border: 0.2rem solid var(--white);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: color 0.2s linear;
+    display: grid;
+    place-items: center;
+    min-height: var(--nav-height);
+  }
+
+  /* Cuando se hace click */
+  .btn:active {
+    background-color: var(--secundary-light);
+    color: var(--white);
+  }
+
+  /* Cuando esta mostrando un contenido */
+  .btn.active,
+  .btn--arrow,
+  .project__btn {
+    background-color: var(--secundary-dark);
+    color: var(--white);
+  }
+  /* Para la pagina de servicios */
+  .btn--slider-tab {
+    background-color: transparent !important;
+    border: transparent;
+  }
+  .btn--arrow {
+    border: none;
+  }
+  .project__btn {
+    flex: 1 0 min(10rem, 25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Que solo se pueda hacer hover en desktop */
+  @media screen and (min-width: 1020px) {
+    .btn:hover,
+    .btn--slider-tab:hover {
+      background-color: var(--secundary-light);
+    }
+  }
+</style>

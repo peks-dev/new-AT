@@ -1,0 +1,78 @@
+---
+import Paragraph from "../components/layout/Paragraph.astro";
+interface Props {
+  title: string;
+  texto: string;
+  number: string;
+  imgPath: string;
+  imgAlt: string;
+}
+
+const { title, texto, number, imgPath, imgAlt } = Astro.props;
+---
+
+<section class="process__step">
+  <header class="process__text-wrap">
+    <h2 class="title--md">{title}</h2>
+    <Paragraph textSize="md" textAlign="right">
+      {texto}
+    </Paragraph>
+  </header>
+  <div class="process__header">
+    <span class="process__number">{number}<slot /></span>
+    <div class="process__img-wrapper">
+      <picture class="process_img-container">
+        <img src={imgPath} alt={imgAlt} />
+      </picture>
+    </div>
+  </div>
+</section>
+<style>
+  .process__text-wrap {
+    position: absolute;
+    bottom: var(--global-margin);
+    left: 50%;
+    width: 80%;
+    max-width: 85rem;
+    transform: translateX(-50%);
+  }
+  .process__header {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+  }
+  .process__number {
+    font-family: var(--font-medium);
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: currentColor;
+    display: flex;
+    flex: 1 1 2rem;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .process__img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 2;
+  }
+  .process__img-wrapper::before,
+  .process__img-wrapper::after,
+  .process__number::before {
+    flex: 1 1 2rem;
+    content: "";
+    display: block;
+    height: var(--global-border-size);
+    background-color: var(--global-border-color);
+  }
+  .process_img-container {
+    border: var(--global-border-size) solid var(--global-border-color);
+    padding: 1rem;
+    width: clamp(1.5rem, 60vw, 35rem);
+  }
+  .process_img-container > img {
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

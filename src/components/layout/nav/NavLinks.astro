@@ -1,0 +1,69 @@
+<div class="nav-links-container">
+  <ul class="nav-links__wrapper" id="links">
+    <li class="nav-links__item">
+      <a href="/">inicio</a>
+    </li>
+    <li class="nav-links__item">
+      <a href="">galeria</a>
+    </li>
+    <li class="nav-links__item">
+      <a href="/Proceso">proceso</a>
+    </li>
+    <li class="nav-links__item">
+      <a href="/Servicios">servicios</a>
+    </li>
+    <li class="nav-links__item">
+      <a href="/Proyectos">trabajos</a>
+    </li>
+    <li class="nav-links__item">
+      <a href="/Contacto">contacto</a>
+    </li>
+  </ul>
+</div>
+<script src="./interactionNav.js"></script>
+
+<style>
+  .nav-links-container {
+    height: calc(100% - var(--nav-height));
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    z-index: 1;
+  }
+  .nav-links__wrapper {
+    padding-bottom: var(--global-margin);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow: hidden;
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .nav-links__item {
+    font-family: var(--font-title);
+    font-size: clamp(4rem, 10vw, 6rem);
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  .nav-links__item::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: var(--global-border-size);
+    background: var(--white);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.2s ease-in;
+  }
+  .nav-links__item:hover::after {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* .nav-links__item.show::after {
+    transform: translateX(0);
+    opacity: 1;
+  } */
+</style>

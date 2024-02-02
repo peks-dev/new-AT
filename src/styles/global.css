@@ -1,0 +1,5 @@
+p {
+  font-family: var(--font-text);
+  font-size: 2rem;
+  color: currentColor;
+}

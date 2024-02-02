@@ -1,0 +1,21 @@
+---
+interface Props {
+  urlLink: string;
+  variant?: string;
+  align: "left" | "center" | "right";
+}
+const { urlLink, variant, align } = Astro.props;
+---
+
+<a href={urlLink}><slot /></a>
+<style define:vars={{ align }}>
+  a {
+    font-family: var(--font-light);
+    font-size: clamp(1.8rem, 3vw, 2rem);
+    color: var(--secundary-dark);
+    text-transform: none;
+    padding: 0.5rem;
+    text-align: var(--align);
+    width: 100%;
+  }
+</style>

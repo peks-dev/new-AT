@@ -1,0 +1,162 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="contacto | AT">
+  <section class="contact">
+    <div class="contact__content">
+      <h1 class="contact__title title--lg">
+        haznos parte de <br /> tu proyecto
+      </h1>
+      <ul class="contact__social-links">
+        <li class="contact__social-link-container">
+          email
+          <a class="contact__link" href="">atalleres@hotmail.com</a>
+        </li>
+        <li class="contact__social-link-container">
+          telefono
+          <a class="contact__link" href="">99-92-00-89-35</a>
+        </li>
+        <li class="contact__social-link-container">
+          instagram
+          <a class="contact__link" href="">@atalleres.mid</a>
+        </li>
+        <li class="contact__social-link-container">
+          faceboook
+          <a class="contact__link" href="">aguilar talleres</a>
+        </li>
+      </ul>
+    </div>
+    <p class="contact__copyright">COPYRIGHT 2024 © aguilar talleres</p>
+    <picture class="contact__img-container">
+      <img
+        src="/assets/dibujo-mueble.png"
+        alt="dibujo de un mueble tipo sketch"
+      />
+    </picture>
+  </section>
+</Layout>
+
+<style>
+  .contact {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    text-align: center;
+  }
+  .contact__content {
+    height: 75%;
+    width: calc(100% - (var(--global-margin) * 2));
+    position: relative;
+    max-width: 110rem;
+    overflow: hidden;
+  }
+  .contact__title {
+    font-size: clamp(3.2rem, 10vw, 12rem);
+    transform: translateY(-100%);
+    animation: slideDown 0.6s ease-in-out 0.5s forwards;
+  }
+  .contact__social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 0 auto;
+    margin-top: 5rem;
+    width: 60%;
+    max-width: 45rem;
+    text-align: left;
+    font-family: var(--font-medium);
+    font-size: clamp(1.5rem, 3vw, 1.7rem);
+    text-transform: uppercase;
+  }
+  .contact__social-link-container {
+    min-width: 18rem;
+    opacity: 0;
+  }
+  .contact__link {
+    font-family: var(--font-light);
+    font-size: clamp(1.8rem, 3vw, 2rem);
+    color: var(--secundary-dark);
+    text-transform: none;
+    margin-top: 0.5rem;
+  }
+  .contact__link:hover {
+    color: var(--secundary-light);
+  }
+
+  .contact__img-container {
+    position: absolute;
+    bottom: 5%;
+    right: 0;
+    width: clamp(16rem, 50vw, 40rem);
+    width: clamp(16rem, 50vw, 40rem);
+    opacity: 0;
+  }
+
+  .contact__img-container > img {
+    height: 100%;
+    object-fit: contain;
+  }
+  .contact__copyright {
+    font-family: var(--font-light);
+    font-size: clamp(1.1rem, 2.1vw, 1.4rem);
+    margin-bottom: var(--global-margin);
+    opacity: 0;
+  }
+  .contact__content::before {
+    content: "";
+    display: block;
+    width: var(--global-border-size);
+    height: clamp(30rem, 85%, 40rem);
+    background-color: var(--global-border-color);
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    transform-origin: top;
+    opacity: 0;
+    animation:
+      drawLine 2s linear 0.9s,
+      show 0.6s ease 0.9s forwards;
+  }
+
+  .contact__social-link-container,
+  .contact__copyright,
+  .contact__img-container {
+    animation-name: show;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+  .contact__social-link-container:nth-child(1) {
+    animation-delay: 1s;
+  }
+  .contact__social-link-container:nth-child(2) {
+    animation-delay: 1.4s;
+  }
+  .contact__social-link-container:nth-child(3) {
+    animation-delay: 1.8s;
+  }
+  .contact__social-link-container:nth-child(4) {
+    animation-delay: 2.2s;
+  }
+  .contact__copyright,
+  .contact__img-container {
+    animation-duration: 1s;
+    animation-delay: 2.4s;
+  }
+
+  @media screen and (min-width: 1050px) {
+    .contact__social-links {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 70%;
+      justify-content: space-around;
+      text-align: center;
+    }
+    .contact__link {
+      margin-top: 2rem;
+    }
+  }
+</style>
