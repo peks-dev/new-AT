@@ -1,0 +1,45 @@
+---
+import Btn from "../../components/layout/Btn.astro";
+import ArrowBack from "../../components/icons/ArrowBack.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<header class="project__top-wrap">
+  <Btn id="back" variant="project__btn"><ArrowBack />atras</Btn>
+  <h1 class="title--lg">{title}</h1>
+</header>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const backBtn = document.getElementById("back");
+
+    function goBack() {
+      window.location.href = "/Proyectos";
+    }
+    backBtn.addEventListener("click", goBack);
+  });
+</script>
+
+<style>
+  .project__top-wrap {
+    height: 13%;
+    display: flex;
+    border-top: var(--global-border-size) solid var(--global-border-color);
+    border-bottom: var(--global-border-size) solid var(--global-border-color);
+  }
+  .project__top-wrap h1 {
+    height: 100%;
+    flex: 1 0 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: var(--global-border-size) solid var(--global-border-color);
+    padding-right: var(--global-margin);
+    width:;
+  }
+</style>

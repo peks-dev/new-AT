@@ -1,0 +1,61 @@
+---
+import InfoBox from "../../components/InfoBox.astro";
+import Paragraph from "../../components/layout/Paragraph.astro";
+
+interface Props {
+  wood: string;
+  color: string;
+  furnitures: string;
+  description: string;
+}
+
+const { wood, color, furnitures, description } = Astro.props;
+---
+
+<div class="project__header">
+  <div class="project__info-wrap">
+    <InfoBox
+      title="madera"
+      text={wood}
+      width="max-content"
+      alignText="center"
+    />
+    <InfoBox
+      title="color"
+      text={color}
+      width="max-content"
+      alignText="center"
+    />
+    <InfoBox
+      title="muebles"
+      text={furnitures}
+      width="max-content"
+      alignText="center"
+    />
+  </div>
+  <Paragraph textAlign="right">
+    {description}
+  </Paragraph>
+</div>
+
+<style>
+  .project__header {
+    padding-top: var(--global-margin);
+    justify-self: right;
+    padding-right: var(--global-margin);
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .project__info-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+
+</style>
+

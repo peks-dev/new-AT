@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Link from "../components/layout/Link.astro";
 ---
 
 <Layout title="contacto | AT">
@@ -11,19 +12,39 @@ import Layout from "../layouts/Layout.astro";
       <ul class="contact__social-links">
         <li class="contact__social-link-container">
           email
-          <a class="contact__link" href="">atalleres@hotmail.com</a>
+          <Link
+            variant="contact__link"
+            align="auto"
+            urlLink="mailto:atalleres@hotmail.com"
+          >
+            atalleres@hotmail.com
+          </Link>
         </li>
         <li class="contact__social-link-container">
           telefono
-          <a class="contact__link" href="">99-92-00-89-35</a>
+          <Link variant="contact__link" align="auto" urlLink="tel:9992008935">
+            99-92-00-89-35
+          </Link>
         </li>
         <li class="contact__social-link-container">
           instagram
-          <a class="contact__link" href="">@atalleres.mid</a>
+          <Link
+            variant="contact__link"
+            align="auto"
+            urlLink="https://www.instagram.com/atalleres.mid?igsh=NTVrdndnNHZydG9o"
+          >
+            @atalleres.mid
+          </Link>
         </li>
         <li class="contact__social-link-container">
           faceboook
-          <a class="contact__link" href="">aguilar talleres</a>
+          <Link
+            variant="contact__link"
+            align="auto"
+            urlLink="https://www.facebook.com/carpinteriaAT?mibextid=kFxxJD"
+          >
+            aguilar talleres
+          </Link>
         </li>
       </ul>
     </div>
@@ -77,14 +98,7 @@ import Layout from "../layouts/Layout.astro";
     opacity: 0;
   }
   .contact__link {
-    font-family: var(--font-light);
-    font-size: clamp(1.8rem, 3vw, 2rem);
-    color: var(--secundary-dark);
-    text-transform: none;
     margin-top: 0.5rem;
-  }
-  .contact__link:hover {
-    color: var(--secundary-light);
   }
 
   .contact__img-container {

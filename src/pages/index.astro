@@ -1,19 +1,38 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Anahuac from "../components/icons/partners/Anahuac.astro";
+import Faro from "../components/icons/partners/Faro.astro";
+import Eladios from "../components/icons/partners/Eladios.astro";
+import Lapalapa from "../components/icons/partners/Lapalapa.astro";
+import InfiniteScroll from "../components/InfiniteScroll.astro"
 ---
 
 <Layout title="Aguilar Talleres Carpinteria">
   <section class="home">
-    <div class="home__imgs-container">hola</div>
+   <InfiniteScroll/>
     <header class="home__header">
       <div class="home__wrapper">
         <h1 class="home__carpi">carpintería</h1>
         <div class="home__middle-container">
           <p class="home__title title--xlg" id="home__title">
-            aguilar<br /> talleres
+            aguilar talleres
           </p>
-          <span class="home__location"> Mérida, Yucatán, México</span>
+          <p class="home__location">Mérida, Yucatán, México</p>
         </div>
+        <ul class="home__icons-wrapper">
+          <li class="home__icon-container">
+            <Anahuac />
+          </li>
+          <li class="home__icon-container">
+            <Faro />
+          </li>
+          <li class="home__icon-container">
+            <Eladios />
+          </li>
+          <li class="home__icon-container">
+            <Lapalapa />
+          </li>
+        </ul>
         <spam class="home__menu">menu</spam>
       </div>
     </header>
@@ -26,24 +45,23 @@ import Layout from "../layouts/Layout.astro";
     flex-direction: column;
     height: 100%;
   }
-  .home__imgs-container {
-    flex: 1 1 100%;
-    background-color: red;
-  }
+
   .home__header {
-    margin-top: 2rem;
     width: 100%;
     text-align: center;
+    height: 60%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
   }
   .home__wrapper {
-    width: min-content;
-    margin: auto;
+    width: 85%;
+    max-width: 85rem;
     padding-bottom: var(--global-margin);
   }
   .home__carpi {
     font-family: var(--font-medium);
     font-size: var(--font-sml);
-    border-bottom: var(--global-border-size) solid var(--global-border-color);
   }
   .home__middle-container {
     max-height: 0;
@@ -65,10 +83,18 @@ import Layout from "../layouts/Layout.astro";
     display: block;
     width: 100%;
   }
+  .home__icons-wrapper {
+    display: flex;
+    max-height: 8rem;
+    border-bottom: var(--global-border-size) solid var(--global-border-color);
+    border-top: var(--global-border-size) solid var(--global-border-color);
+    margin-top:var(--global-margin);
+  }
+  .home__icon-container {
+    flex 1 1 20%
+  }
 
   .home__menu {
-    margin-top: var(--global-margin);
-    border-top: var(--global-border-size) solid var(--global-border-color);
     font-family: var(--font-regular);
     font-size: 1.4rem;
     text-transform: uppercase;
@@ -76,8 +102,7 @@ import Layout from "../layouts/Layout.astro";
     letter-spacing: 0.1rem;
   }
   /* vertical line border */
-  .home__menu::before,
-  .home__carpi::after {
+  .home__menu::before {
     content: "";
     display: block;
     width: var(--global-border-size);
@@ -92,20 +117,4 @@ import Layout from "../layouts/Layout.astro";
     gap: 1.5rem;
   }
 
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes grow {
-    from {
-      max-height: 0;
-    }
-    to {
-      max-height: 100vh;
-    }
-  }
 </style>

@@ -1,0 +1,50 @@
+---
+import Btn from "../layout/Btn.astro";
+---
+
+<ul class="gallery__btns-wrapper">
+  <li class="gallery__btn-container">
+    <Btn variant="active">todos</Btn>
+  </li>
+  <li class="gallery__btn-container">
+    <Btn>camas</Btn>
+  </li>
+  <li class="gallery__btn-container">
+    <Btn>closets</Btn>
+  </li>
+  <li class="gallery__btn-container">
+    <Btn>cocinas</Btn>
+  </li>
+  <li class="gallery__btn-container">
+    <Btn>puertas</Btn>
+  </li>
+  <li class="gallery__btn-container">
+    <Btn>buros</Btn>
+  </li>
+</ul>
+
+<style>
+  .gallery__btns-wrapper {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    border: var(--global-border-size) solid var(--global-border-color);
+    border-left: none;
+    border-right: none;
+    overflow: auto;
+    position: sticky;
+    top: 0;
+    background-color: var(--white);
+  }
+  .gallery__btns-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .gallery__btn-container {
+    height: 100%;
+    width: clamp(6.5rem, 22%, 10rem);
+  }
+
+  .gallery__btn-container {
+    height: 100%;
+  }
+</style>

@@ -8,7 +8,7 @@ interface Props {
 const { variant, id, toolTip } = Astro.props;
 ---
 
-<button class=`btn ${variant}` id={id} type="button" title={toolTip}>
+<button class:list=`btn ${variant}` id={id} type="button" title={toolTip}>
   <slot />
 </button>
 
@@ -28,6 +28,8 @@ const { variant, id, toolTip } = Astro.props;
     display: grid;
     place-items: center;
     min-height: var(--nav-height);
+    /* padding-right: 0.4rem;
+    padding-left: 0.4rem; */
   }
 
   /* Cuando se hace click */

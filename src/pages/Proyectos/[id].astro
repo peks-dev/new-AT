@@ -1,0 +1,60 @@
+---
+import type { GetStaticPaths } from "astro";
+// templates
+import Layout from "../../layouts/Layout.astro";
+import ProjectTopBar from "../../layouts/project/ProjectTopBar.astro";
+import ProjectHeader from "../../layouts/project/ProjectHeader.astro";
+import ProjectGallery from "../../layouts/project/ProjectGallery.astro";
+
+// Data
+import { projectsData } from "../../lib/projectsData";
+
+export async function getStaticPaths() {
+  return projectsData.map((project) => {
+    return {
+      params: { id: project.id },
+    };
+  });
+}
+// user project selected
+const { id } = Astro.params;
+
+// Search project in data
+const projectSelected = projectsData.find((item) => item.id === id);
+---
+
+<Layout title={projectSelected.name}>
+  <article class="project-wrapper">
+    <ProjectTopBar title={projectSelected.name} />
+    <div class="project__content-wrapper">
+      <ProjectHeader
+        description={projectSelected.description}
+        wood={projectSelected.wood}
+        color={projectSelected.color}
+        furnitures={projectSelected.furnitures}
+      />
+      <ProjectGallery images={projectSelected.images} />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .project-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .project__content-wrapper {
+    height: 87%;
+    max-height: 87%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+  }
+  @media screen and (min-width: 950px) {
+    .project__content-wrapper {
+      grid-template-columns: 50rem 1fr;
+      grid-template-rows: 1fr;
+    }
+  }
+</style>

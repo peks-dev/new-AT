@@ -1,0 +1,202 @@
+---
+import Layout from "./Layout.astro";
+import Btn from "../components/layout/Btn.astro";
+import ArrowBack from "../components/icons/ArrowBack.astro";
+import InfoBox from "../components/InfoBox.astro";
+import Paragraph from "../components/layout/Paragraph.astro";
+import Lightbox from "../components/lightbox/Lightbox.astro";
+---
+
+<Layout title="project-name">
+  <div class="project-wrapper">
+    <header class="project__top-wrap">
+      <Btn id="back" variant="project__btn"><ArrowBack />atras</Btn>
+      <h1 class="title--lg">Orion bussines</h1>
+    </header>
+    <div class="project__content-wrapper">
+      <div class="project__header">
+        <div class="project__info-wrap">
+          <InfoBox
+            title="madera"
+            text="tzalam"
+            width="max-content"
+            alignText="center"
+          />
+          <InfoBox
+            title="color"
+            text="nogal"
+            width="max-content"
+            alignText="center"
+          />
+          <InfoBox
+            title="muebles"
+            text="4"
+            width="max-content"
+            alignText="center"
+          />
+        </div>
+        <Paragraph textAlign="right">
+          Proyecto con el objetivo de vestir una de las oficinas dentro de un
+          nuevo y muy llamativo edificio en la ciudad
+        </Paragraph>
+      </div>
+
+      <div class="project__gallery-wrapper" id="imgs-container">
+        <div class="project__img-container">
+          <img
+            src="/assets/proyects/orion/orion-1.jpg"
+            alt=""
+            class="project__img"
+          />
+        </div>
+        <div class="project__img-container">
+          <img
+            src="/assets/proyects/orion/orion-2.jpg"
+            alt=""
+            class="project__img"
+          />
+        </div>
+        <div class="project__img-container">
+          <img
+            src="/assets/proyects/orion/orion-3.jpg"
+            alt=""
+            class="project__img"
+          />
+        </div>
+        <div class="project__img-container">
+          <img
+            src="/assets/proyects/orion/orion-4.jpg"
+            alt=""
+            class="project__img"
+          />
+        </div>
+        <div class="project__img-container">
+          <img
+            src="/assets/proyects/orion/orion-5.jpg"
+            alt=""
+            class="project__img"
+          />
+        </div>
+        <Lightbox />
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const backBtn = document.getElementById("back");
+
+    function goBack() {
+      window.location.href = "/Proyectos";
+    }
+    backBtn.addEventListener("click", goBack);
+  });
+</script>
+
+<style>
+  .project-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .project__top-wrap {
+    height: 13%;
+    display: flex;
+    border-top: var(--global-border-size) solid var(--global-border-color);
+    border-bottom: var(--global-border-size) solid var(--global-border-color);
+  }
+
+  .project__info-wrap {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .project__content-wrapper {
+    height: 87%;
+    max-height: 87%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+  }
+  .project__header {
+    padding-top: var(--global-margin);
+    justify-self: right;
+    padding-right: var(--global-margin);
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .project__top-wrap h1 {
+    height: 100%;
+    flex: 1 0 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: var(--global-border-size) solid var(--global-border-color);
+    padding-right: var(--global-margin);
+    width:;
+  }
+  .project__gallery-wrapper {
+    /* background-color: blueviolet; */
+    display: grid;
+    grid-template-areas:
+      "img-1 img-2 img-2 img-2"
+      "img-1 img-2 img-2 img-2"
+      "img-3 img-3 img-4 img-5";
+    grid-template-columns: 3fr 1fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr 2fr;
+    padding: var(--global-margin);
+    gap: 1rem;
+    overflow: hidden;
+    grid-auto-flow: dense;
+    position: relative;
+  }
+
+  .project__img-container {
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center center;
+    -o-object-fit: cover;
+    -o-object-position: center center;
+    display: flex;
+    border: var(--global-border-size) solid var(--global-border-color);
+    padding: 0.4rem;
+    cursor: zoom-in;
+  }
+  .project__img-container img {
+    display: flex;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .project__img-container:nth-child(1) {
+    grid-area: img-1;
+  }
+  .project__img-container:nth-child(2) {
+    grid-area: img-2;
+  }
+  .project__img-container:nth-child(3) {
+    grid-area: img-3;
+  }
+  .project__img-container:nth-child(4) {
+    grid-area: img-4;
+  }
+
+  /* animacion hover imagen */
+  .project__img-container:hover img {
+    transform: scale(1.2);
+  }
+
+  @media screen and (min-width: 950px) {
+    .project__content-wrapper {
+      grid-template-columns: 50rem 1fr;
+      grid-template-rows: 1fr;
+    }
+  }
+</style>

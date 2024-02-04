@@ -1,5 +1,5 @@
 document.addEventListener("astro:page-load", () => {
-  const containerImgs = document.getElementById("imgs-container");
+  const containerImgs = document.getElementById("imgs-wrapper");
   const ligthbox = document.querySelector(".lightbox-wrapper");
   const imgContainer = document.querySelector(".lightbox__img");
   const ligthboxCloseBtns = document.querySelectorAll(".lightbox__close-btn");
@@ -16,7 +16,8 @@ document.addEventListener("astro:page-load", () => {
 
   /* saber que imagen fue clickeada*/
   containerImgs.addEventListener("click", (e) => {
-    if (e.target.classList.contains("project__img")) {
+    console.log(e.target);
+    if (e.target.classList.contains("img")) {
       // Si la imagen fue clickeada
       console.log(e.target);
       let imgSelected = e.target.getAttribute("src");

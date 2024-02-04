@@ -4,7 +4,7 @@
       <a href="/">inicio</a>
     </li>
     <li class="nav-links__item">
-      <a href="">galeria</a>
+      <a href="/Galeria">galeria</a>
     </li>
     <li class="nav-links__item">
       <a href="/Proceso">proceso</a>
@@ -57,13 +57,9 @@
     opacity: 0;
     transition: transform 0.2s ease-in;
   }
-  .nav-links__item:hover::after {
+  .nav-links__item:hover::after,
+  .nav-links__item.show::after {
     transform: translateX(0);
     opacity: 1;
   }
-
-  /* .nav-links__item.show::after {
-    transform: translateX(0);
-    opacity: 1;
-  } */
 </style>

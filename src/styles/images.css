@@ -1,0 +1,26 @@
+.img-container {
+  display: flex;
+  overflow: hidden;
+  cursor: zoom-in;
+  justify-content: center;
+}
+.img {
+  display: flex;
+  object-fit: cover;
+  object-position: center center;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.4s ease-in-out;
+}
+.img-container:hover img {
+  transform: scale(1.2);
+}
+
+.img-container--project {
+  border: var(--global-border-size) solid var(--global-border-color);
+  padding: 0.4rem;
+}
+
+.img-container--gallery {
+  max-height: 40rem;
+}

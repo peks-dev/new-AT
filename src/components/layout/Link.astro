@@ -2,12 +2,12 @@
 interface Props {
   urlLink: string;
   variant?: string;
-  align: "left" | "center" | "right";
+  align: "left" | "center" | "right" | "auto";
 }
 const { urlLink, variant, align } = Astro.props;
 ---
 
-<a href={urlLink}><slot /></a>
+<a href={urlLink} class:list={variant}><slot /></a>
 <style define:vars={{ align }}>
   a {
     font-family: var(--font-light);
@@ -17,5 +17,8 @@ const { urlLink, variant, align } = Astro.props;
     padding: 0.5rem;
     text-align: var(--align);
     width: 100%;
+  }
+  a:hover {
+    color: var(--secundary-light);
   }
 </style>
