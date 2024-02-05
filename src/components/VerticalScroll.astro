@@ -1,0 +1,182 @@
+---
+import { furnitures } from "../lib/furnitures";
+---
+
+<div class="scroll">
+  <div class="left">
+    <ul class="scroll__wrapper">
+      <li class="scroll__img-container">
+        <img src={furnitures.comedores[4].foto} alt="Imagen 1" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.puertas[7].foto} alt="Imagen 8" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.cocinas[1].foto} alt="Imagen 2" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.puertas[19].foto} alt="Imagen 4" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.camas[4].foto} alt="Imagen 3" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.puertas[10].foto} alt="Imagen 8" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.cocinas[16].foto} alt="Imagen 5" />
+      </li>
+    </ul>
+    <ul class="scroll__wrapper">
+      <li class="scroll__img-container">
+        <img src={furnitures.puertas[2].foto} alt="Imagen 8" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.camas[1].foto} alt="Imagen 6" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.closets[8].foto} alt="Imagen 7" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.tvs[3].foto} alt="Imagen 8" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.puertas[5].foto} alt="Imagen 8" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.cocinas[0].foto} alt="Imagen 9" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.otros[18].foto} alt="Imagen 10" />
+      </li>
+    </ul>
+  </div>
+  <div class="right">
+    <ul class="scroll__wrapper">
+      <li class="scroll__img-container">
+        <img src={furnitures.puertas[8].foto} alt="Imagen 8" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.comedores[1].foto} alt="Imagen 1" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.cocinas[3].foto} alt="Imagen 2" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.camas[2].foto} alt="Imagen 6" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.puertas[1].foto} alt="Imagen 7" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.otros[8].foto} alt="Imagen 4" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.cocinas[14].foto} alt="Imagen 5" />
+      </li>
+    </ul>
+    <ul class="scroll__wrapper">
+      <li class="scroll__img-container">
+        <img src={furnitures.camas[6].foto} alt="Imagen 6" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.closets[3].foto} alt="Imagen 7" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.puertas[3].foto} alt="Imagen 11" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.tvs[2].foto} alt="Imagen 8" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.cocinas[7].foto} alt="Imagen 9" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.puertas[6].foto} alt="Imagen 12" />
+      </li>
+      <li class="scroll__img-container">
+        <img src={furnitures.otros[17].foto} alt="Imagen 10" />
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .scroll {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .scroll__wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    max-width: 20rem;
+  }
+  .scroll__img-container {
+    overflow: hidden;
+    min-height: 25rem;
+  }
+  .scroll__img-container img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* primera y tercera columna */
+  .left .scroll__wrapper:nth-child(1),
+  .right .scroll__wrapper:nth-child(1) {
+    animation: scroll-vertical-large 25s linear infinite alternate;
+  }
+
+  /* posicionar hasta bajo segunda y cuarta columna */
+  .left .scroll__wrapper:nth-child(2),
+  .right .scroll__wrapper:nth-child(2) {
+    /* transform: translateY(calc(70% - 100vh)); */
+    animation: scroll-vertical-large 25s linear infinite alternate-reverse;
+  }
+  .scroll__img-container:nth-child(even) {
+  }
+
+  .left,
+  .right {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+  }
+  .left {
+    justify-content: left;
+    padding-left: var(--global-margin);
+  }
+  .right {
+    justify-content: right;
+    padding-right: var(--global-margin);
+  }
+
+  /* adaptar  mobile */
+  @media screen and (max-width: 600px) {
+    .scroll__img-container {
+      min-height: 12rem;
+    }
+    .scroll__wrapper:nth-child(2) {
+      transform: translateY(calc(100% - 100vh));
+    }
+
+    .left .scroll__wrapper:nth-child(1),
+    .right .scroll__wrapper:nth-child(1) {
+      animation: scroll-vertical-short 25s linear infinite alternate;
+    }
+
+    .left .scroll__wrapper:nth-child(2),
+    .right .scroll__wrapper:nth-child(2) {
+      /* transform: translateY(calc(70% - 100vh)); */
+      animation: scroll-vertical-short 25s linear infinite alternate-reverse;
+    }
+  }
+</style>

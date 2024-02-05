@@ -2,13 +2,13 @@ export const furnitures = {
   baños: [
     {
       categoria: "baños",
-      foto: "./assets/imgs-trabajos/baños/baño-1.jpg",
+      foto: "/assets/imgs-trabajos/baños/baño-1.jpg",
       madera: "encino",
       color: "chocolate",
     },
     {
       categoria: "baños",
-      foto: "./assets/imgs-trabajos/baños/baño-2.jpg",
+      foto: "/assets/imgs-trabajos/baños/baño-2.jpg",
       madera: "caobilla",
       color: "cedro",
     },

@@ -7,6 +7,9 @@ document.addEventListener("astro:page-load", () => {
   function openMenu() {
     navContainer.classList.toggle("active");
     menuBtn.classList.toggle("active");
+    links.forEach((link) => {
+      link.parentNode.classList.toggle("animation");
+    });
   }
   function handleKeyPress(event) {
     if (event.key === "Escape" && navContainer.classList.contains("active")) {
