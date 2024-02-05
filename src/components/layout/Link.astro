@@ -17,8 +17,18 @@ const { urlLink, variant, align } = Astro.props;
     padding: 0.5rem;
     text-align: var(--align);
     width: 100%;
+    transition: all 0.2s linear;
   }
   a:hover {
     color: var(--secundary-light);
+  }
+
+  .slider__link {
+    color: var(--secundary-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+  .slider__link:hover {
+    transform: scale(1.2);
   }
 </style>

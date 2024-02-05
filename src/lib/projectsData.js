@@ -16,4 +16,41 @@ export const projectsData = [
       { url: "/assets/proyects/orion/orion-5.jpg", alt: "", category: "mesa" },
     ],
   },
+  {
+    id: "2",
+    name: "consultorio niños",
+    service: "empresarial",
+    description:
+      "vestir un consultorio enfocado para niños con un aspecto divertido",
+    wood: "listonado, pino",
+    color: "amarillo",
+    furnitures: "5",
+    images: [
+      {
+        url: "/assets/proyects/consultorio/consultorio-1.jpeg",
+        alt: "",
+        category: "mesa",
+      },
+      {
+        url: "/assets/proyects/consultorio/consultorio-2.jpeg",
+        alt: "",
+        category: "mesa",
+      },
+      {
+        url: "/assets/proyects/consultorio/consultorio-3.jpeg",
+        alt: "",
+        category: "mesa",
+      },
+      {
+        url: "/assets/proyects/consultorio/consultorio-4.jpeg",
+        alt: "",
+        category: "mesa",
+      },
+      {
+        url: "/assets/proyects/consultorio/consultorio-5.jpeg",
+        alt: "",
+        category: "mesa",
+      },
+    ],
+  },
 ];

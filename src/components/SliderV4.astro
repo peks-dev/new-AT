@@ -1,96 +1,46 @@
 ---
-import InfoBox from "./InfoBox.astro";
-import Link from "./layout/Link.astro";
-import Arrow from "./icons/Arrow.astro";
-import Btn from "./layout/Btn.astro";
+import SliderItem from "./SliderItem.astro";
+import SliderDots from "./SliderDots.astro";
+import Indicator from "./Indicator.astro";
 
 import { projectsData } from "../lib/projectsData";
+
+const projectsIds = projectsData.map((project) => {
+  return project.Id;
+});
 ---
 
 <div class="slider-wrapper">
   <ul class="slider__items-container">
-    <li class="slider__item-wrap">
-      <picture class="slider__img-container">
-        <img
-          src={projectsData[0].images[1].url}
-          alt={projectsData[0].images[1].alt}
-        />
-      </picture>
-      <div class="slider__column-right">
-        <header class="slider__header">
-          <span class="slider__subtitle">proyecto</span>
-          <h2 class="slider__title title--md">{projectsData[0].name}</h2>
-          <InfoBox
-            title="servicio"
-            text={projectsData[0].service}
-            alignText="right"
-          />
-        </header>
-        <Link urlLink=`/Proyectos/${projectsData[0].id}` align="center">
-          ver detalles
-        </Link>
-      </div>
-    </li>
+    {projectsData.map((project) => <SliderItem projectData={project} />)}
   </ul>
-  <div class="slider__btns-container">
-    <Btn variant="btn--arrow" toolTip="retroceder"><Arrow /></Btn>
-    <Btn variant="btn--arrow" toolTip="avanzar">
-      <Arrow variant="right" />
-    </Btn>
+  <div class="slider__indicators">
+    <Indicator text="desliza" variant="indicator__slider" />
+    <SliderDots ids={projectsIds} />
   </div>
 </div>
+
 <style>
   .slider-wrapper {
     flex: 1 1 auto;
+    width: 100%;
     overflow: hidden;
     position: relative;
   }
   .slider__items-container {
     height: 100%;
-  }
-  .slider__item-wrap {
     display: flex;
-    height: 100%;
-  }
-  .slider__img-container {
-    flex: 1 1 auto;
-    border-right: var(--global-border-size) solid var(--global-border-color);
-    overflow: hidden;
-  }
-  .slider__img-container > img {
-    max-width: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
     width: 100%;
-    max-height: 100%;
-    height: 100%;
-    animation: pulse 10s linear infinite alternate;
   }
-  .slider__column-right {
-    flex: 1 0 calc((100vw - var(--nav-height)) / 2);
-    text-align: right;
-    padding: var(--global-margin);
-    display: flex;
-    flex-direction: column;
+  .slider__items-container::-webkit-scrollbar {
+    display: none;
   }
-  .slider__header {
-    flex: 0 1 85%;
-  }
-  .slider__title {
-    margin: 0.5rem 0 2rem 0;
-  }
-  .slider__subtitle {
-    font-family: var(--font-medium);
-    font-size: 1.2rem;
-    color: var(--primary-dark);
-    text-transform: uppercase;
-  }
-  .slider__btns-container {
+  .slider__indicators {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    width: calc((100vw - var(--nav-height)) / 2);
-    /* height: 4rem; */
-    gap: var(--global-border-size);
-    padding: var(--global-border-size);
+    bottom: var(--global-margin);
+    right: var(--global-margin);
+    width: min-content;
   }
 </style>

@@ -1,0 +1,27 @@
+---
+interface Props {
+  ids: any[];
+}
+const { ids } = Astro.props;
+---
+
+<div class="dots">
+  {ids.map((id) => <div class="dots__item" id={id} />)}
+</div>
+
+<style>
+  .dots {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .dots__item {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--primary-light);
+  }
+  .dots__item.active {
+    background-color: var(--primary-dark);
+  }
+</style>

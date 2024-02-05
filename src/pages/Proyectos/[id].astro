@@ -5,6 +5,8 @@ import Layout from "../../layouts/Layout.astro";
 import ProjectTopBar from "../../layouts/project/ProjectTopBar.astro";
 import ProjectHeader from "../../layouts/project/ProjectHeader.astro";
 import ProjectGallery from "../../layouts/project/ProjectGallery.astro";
+import Lightbox from "../../components/lightbox/Lightbox.astro";
+import Indicator from "../../components/Indicator.astro";
 
 // Data
 import { projectsData } from "../../lib/projectsData";
@@ -34,6 +36,8 @@ const projectSelected = projectsData.find((item) => item.id === id);
         furnitures={projectSelected.furnitures}
       />
       <ProjectGallery images={projectSelected.images} />
+      <Lightbox />
+      <Indicator text="scroll" variant="indicator--project-page" />
     </div>
   </article>
 </Layout>
@@ -50,6 +54,7 @@ const projectSelected = projectsData.find((item) => item.id === id);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 3fr;
+    position: relative;
   }
   @media screen and (min-width: 950px) {
     .project__content-wrapper {

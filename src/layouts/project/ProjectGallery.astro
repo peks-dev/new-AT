@@ -1,6 +1,4 @@
 ---
-import Lightbox from "../../components/lightbox/Lightbox.astro";
-
 interface Image {
   url: string;
   alt: string;
@@ -18,47 +16,36 @@ const { images } = Astro.props;
   {
     images.map((img, index) => {
       return (
-        <picture class="img-container img-container--project">
+        <picture class="project__img-container">
           <img src={img.url} alt={img.alt} class="img" />
         </picture>
       );
     })
   }
-  <Lightbox />
 </div>
 
 <style>
   .project__gallery-wrapper {
     /* background-color: blueviolet; */
     display: grid;
-    grid-template-areas:
-      "img-1 img-2 img-2 img-2"
-      "img-1 img-2 img-2 img-2"
-      "img-3 img-3 img-4 img-5";
-    grid-template-columns: 3fr 1fr 2fr 2fr;
-    grid-template-rows: 1fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     padding: var(--global-margin);
     gap: 1rem;
-    overflow: hidden;
-    grid-auto-flow: dense;
+    overflow: auto;
     position: relative;
   }
-
-  .img-container--project:nth-child(1) {
-    grid-area: img-1;
+  .project__img-container {
+    border: var(--global-border-size) solid var(--global-border-color);
+    padding: 1rem;
   }
-  .img-container--project:nth-child(2) {
-    grid-area: img-2;
+  .project__gallery-wrapper::-webkit-scrollbar {
+    width: 1rem;
+    background-color: var(--white);
   }
-  .img-container--project:nth-child(3) {
-    grid-area: img-3;
+  .project__gallery-wrapper::-webkit-scrollbar-track {
+    background: var(--secundary-light);
   }
-  .img-container--project:nth-child(4) {
-    grid-area: img-4;
+  .project__gallery-wrapper::-webkit-scrollbar-thumb {
+    background: var(--secundary-dark);
   }
-
-  /* animacion hover imagen */
-  /* .project__img-container:hover img {
-    transform: scale(1.2);
-  } */
 </style>

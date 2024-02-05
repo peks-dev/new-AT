@@ -1,0 +1,63 @@
+---
+interface Props {
+  text: string;
+  variant: string;
+}
+const { text, variant } = Astro.props;
+---
+
+<div class:list=`indicator ${variant}`>
+  {text}
+  <div class="scroll">
+    <div class="scroll-bar"></div>
+  </div>
+</div>
+
+<style>
+  .indicator {
+    font-family: var(--font-regular);
+    font-size: clamp(1rem, 1.5vw, 1.7rem);
+    text-transform: uppercase;
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    gap: 1rem;
+  }
+  .scroll {
+    height: 5rem;
+    width: 0.3rem;
+    background: var(--global-border-color);
+    overflow: hidden;
+  }
+  .scroll-bar {
+    background-color: var(--primary-dark);
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    animation: scrollDown 1.5s ease-in-out infinite;
+  }
+
+  .indicator--project-page {
+    flex-direction: column;
+    top: 3rem;
+    left: 3rem;
+  }
+  .indicator__slider {
+    position: static;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--global-border-color);
+  }
+  .indicator__slider > .scroll {
+    height: 0.3rem;
+    width: 5rem;
+  }
+
+  .indicator__slider > .scroll > .scroll-bar {
+    transform: translateX(-100%);
+    animation-name: scrollRight;
+  }
+</style>
