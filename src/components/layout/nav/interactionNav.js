@@ -17,6 +17,8 @@ document.addEventListener("astro:page-load", () => {
     }
   }
 
+  console.log(window.location.pathname);
+
   // señalar link activo
   links.forEach((link) => {
     if (link.getAttribute("href") === window.location.pathname) {
