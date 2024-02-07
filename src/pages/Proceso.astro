@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Paragraph from "../components/layout/Paragraph.astro";
 import Step from "../layouts/Step.astro";
+import Indicator from "../components/Indicator.astro";
 // icons svgs
 import Planta2 from "../components/icons/Planta2.astro";
 import Done from "../components/icons/Done.astro";
@@ -22,6 +23,7 @@ import Done from "../components/icons/Done.astro";
       <div class="process__plant">
         <Planta2 />
       </div>
+      <Indicator text="desliza" variant="indicator--process" />
     </section>
     <Step
       title="consulta creativa"
@@ -155,7 +157,9 @@ import Done from "../components/icons/Done.astro";
   }
 
   .process::-webkit-scrollbar-track {
-    background-color: var(--white); /* Color del fondo del scrollbar */
+    background-color: var(
+      --secundary-light
+    ); /* Color del fondo del scrollbar */
     height: 5px;
   }
 </style>

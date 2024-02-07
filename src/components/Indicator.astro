@@ -51,13 +51,22 @@ const { text, variant } = Astro.props;
     margin-bottom: 1rem;
     color: var(--global-border-color);
   }
-  .indicator__slider > .scroll {
+  .indicator__slider > .scroll,
+  .indicator--process > .scroll {
     height: 0.3rem;
     width: 5rem;
   }
 
-  .indicator__slider > .scroll > .scroll-bar {
+  .indicator__slider > .scroll > .scroll-bar,
+  .indicator--process > .scroll > .scroll-bar {
     transform: translateX(-100%);
     animation-name: scrollRight;
+  }
+
+  .indicator--process {
+    bottom: var(--global-margin);
+    right: var(--global-margin);
+    opacity: 0;
+    animation: show 0.5s ease-out 1.5s forwards;
   }
 </style>

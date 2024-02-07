@@ -53,4 +53,40 @@ export const projectsData = [
       },
     ],
   },
+  {
+    id: "3",
+    name: "mueble raro",
+    service: "fabricacion",
+    description: "escritorio pasado de vrg para que te pongas las pilas perro",
+    wood: "pino",
+    color: "nogal",
+    furnitures: "4",
+    images: [
+      {
+        url: "/assets/proyects/consultorio/consultorio-1.jpeg",
+        alt: "",
+        category: "mesa",
+      },
+      {
+        url: "/assets/proyects/consultorio/consultorio-2.jpeg",
+        alt: "",
+        category: "mesa",
+      },
+      {
+        url: "/assets/proyects/consultorio/consultorio-3.jpeg",
+        alt: "",
+        category: "mesa",
+      },
+      {
+        url: "/assets/proyects/consultorio/consultorio-4.jpeg",
+        alt: "",
+        category: "mesa",
+      },
+      {
+        url: "/assets/proyects/consultorio/consultorio-5.jpeg",
+        alt: "",
+        category: "mesa",
+      },
+    ],
+  },
 ];

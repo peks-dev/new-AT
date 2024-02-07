@@ -1,12 +1,12 @@
 ---
 import SliderItem from "./SliderItem.astro";
 import SliderDots from "./SliderDots.astro";
-import Indicator from "./Indicator.astro";
+import Indicator from "../Indicator.astro";
 
-import { projectsData } from "../lib/projectsData";
+import { projectsData } from "../../lib/projectsData";
 
 const projectsIds = projectsData.map((project) => {
-  return project.Id;
+  return project.id; // Asegúrate de usar "id" en lugar de "Id"
 });
 ---
 
@@ -19,6 +19,7 @@ const projectsIds = projectsData.map((project) => {
     <SliderDots ids={projectsIds} />
   </div>
 </div>
+<script src="./sliderV4.js"></script>
 
 <style>
   .slider-wrapper {
@@ -33,6 +34,7 @@ const projectsIds = projectsData.map((project) => {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     width: 100%;
+    scroll-behavior: smooth;
   }
   .slider__items-container::-webkit-scrollbar {
     display: none;

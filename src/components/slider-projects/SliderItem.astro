@@ -1,5 +1,5 @@
 ---
-import Link from "./layout/Link.astro";
+import Link from "../layout/Link.astro";
 interface Images {
   url: string;
   alt: string;
@@ -19,28 +19,31 @@ interface Props {
 const { projectData } = Astro.props;
 ---
 
-<li class="slider__item-wrap">
+<li class="slider__item-wrap" id={projectData.id}>
   <picture class="slider__img-container">
     <source media="(min-width: 768px)" srcset={projectData.images[3].url} />
     <img src={projectData.images[1].url} alt={projectData.images[1].alt} />
   </picture>
-  <div class="slider__column-right">
+  <div class="sldier__header-wrapper">
     <header class="slider__header">
       <h2 class="slider__title title--xlg">{projectData.name}</h2>
-      <Link
-        urlLink=`/Proyectos/${projectData.id}`
-        align="center"
-        variant="slider__link"
-      >
-        exlorar proyecto
-      </Link>
+      <div class="slider__link-container">
+        <Link
+          urlLink=`/Proyectos/${projectData.id}`
+          align="center"
+          variant="slider__link"
+        >
+          exlorar proyecto
+        </Link>
+      </div>
     </header>
   </div>
-  <p class="slider__details">
-    servicio / <span class="slider__details--service"
-      >{projectData.service}</span
-    >
-  </p>
+  <div class="slider__details-wrapper">
+    <p class="slider__details">servicio /</p>
+    <p class="slider__details--service">
+      {projectData.service}
+    </p>
+  </div>
 </li>
 
 <style>
@@ -49,6 +52,7 @@ const { projectData } = Astro.props;
     height: 100%;
     min-width: 100%;
     position: relative;
+    scroll-snap-align: center;
   }
   .slider__img-container {
     width: 100%;
@@ -62,9 +66,11 @@ const { projectData } = Astro.props;
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
+    transition: opacity 0.5s linear;
   }
   .slider__img-container > img {
     /* width: 100%; */
@@ -79,22 +85,57 @@ const { projectData } = Astro.props;
     width: 80%;
     text-align: center;
     transform: translate(-50%, -50%);
+    overflow: hidden;
   }
   .slider__title {
+    transform: translateY(-100%);
     margin-bottom: 1rem;
     color: var(--white);
+    transition: transform 0.5s ease-in-out 0.5s;
   }
-  .slider__details {
+
+  .slider__details-wrapper {
     position: absolute;
     bottom: var(--global-margin);
     left: var(--global-margin);
+    overflow: hidden;
     color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .slider__details {
     font-family: var(--font-medium);
     font-size: clamp(1.5rem, 3vw, 2rem);
     text-transform: uppercase;
   }
   .slider__details--service {
     font-family: var(--font-light);
+    font-size: clamp(1.5rem, 3vw, 2rem);
     text-transform: none;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in 1.2s;
+  }
+
+  /* animaciones intersecting*/
+  .slider__link-container,
+  .slider__details {
+    opacity: 0;
+    transition: opacity 0.5s linear 0.8s;
+  }
+
+  .slider__item-wrap.active .slider__img-container::after {
+    opacity: 1;
+  }
+  .slider__item-wrap.active .slider__title {
+    transform: translateY(0);
+  }
+  .slider__item-wrap.active .slider__link-container,
+  .slider__item-wrap.active .slider__details {
+    opacity: 1;
+  }
+  .slider__item-wrap.active .slider__details--service {
+    transform: translateX(0);
   }
 </style>

@@ -5,9 +5,15 @@ interface Props {
 const { ids } = Astro.props;
 ---
 
-<div class="dots">
-  {ids.map((id) => <div class="dots__item" id={id} />)}
-</div>
+<nav class="dots">
+  {
+    ids.map((id) => (
+      <button class="dots__item" id={id}>
+        <a href={`#${id}`} />
+      </button>
+    ))
+  }
+</nav>
 
 <style>
   .dots {
@@ -19,9 +25,13 @@ const { ids } = Astro.props;
   .dots__item {
     width: 1.5rem;
     height: 1.5rem;
-    background-color: var(--primary-light);
+    background-color: var(--primary-dark);
   }
   .dots__item.active {
-    background-color: var(--primary-dark);
+    background-color: var(--primary-light);
+  }
+  a {
+    width: 100%;
+    height: 100%;
   }
 </style>
