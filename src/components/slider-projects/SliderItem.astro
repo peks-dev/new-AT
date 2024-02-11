@@ -21,7 +21,7 @@ const { projectData } = Astro.props;
 
 <li class="slider__item-wrap" id={projectData.id}>
   <picture class="slider__img-container">
-    <source media="(min-width: 768px)" srcset={projectData.images[3].url} />
+    <source media="(min-width: 768px)" srcset={projectData.images[2].url} />
     <img src={projectData.images[1].url} alt={projectData.images[1].alt} />
   </picture>
   <div class="sldier__header-wrapper">
@@ -32,6 +32,7 @@ const { projectData } = Astro.props;
           urlLink=`/Proyectos/${projectData.id}`
           align="center"
           variant="slider__link"
+          open="_self"
         >
           exlorar proyecto
         </Link>

@@ -6,96 +6,96 @@ import { furnitures } from "../lib/furnitures";
   <div class="left">
     <ul class="scroll__wrapper">
       <li class="scroll__img-container">
-        <img src={furnitures.comedores[4].foto} alt="Imagen 1" />
+        <img src={furnitures[4].url} alt="Imagen 1" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.puertas[7].foto} alt="Imagen 8" />
+        <img src={furnitures[7].url} alt="Imagen 8" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.cocinas[1].foto} alt="Imagen 2" />
+        <img src={furnitures[12].url} alt="Imagen 2" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.puertas[19].foto} alt="Imagen 4" />
+        <img src={furnitures[19].url} alt="Imagen 4" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.camas[4].foto} alt="Imagen 3" />
+        <img src={furnitures[33].url} alt="Imagen 3" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.puertas[10].foto} alt="Imagen 8" />
+        <img src={furnitures[9].url} alt="Imagen 8" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.cocinas[16].foto} alt="Imagen 5" />
+        <img src={furnitures[16].url} alt="Imagen 5" />
       </li>
     </ul>
     <ul class="scroll__wrapper">
       <li class="scroll__img-container">
-        <img src={furnitures.puertas[2].foto} alt="Imagen 8" />
+        <img src={furnitures[22].url} alt="Imagen 8" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.camas[1].foto} alt="Imagen 6" />
+        <img src={furnitures[11].url} alt="Imagen 6" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.closets[8].foto} alt="Imagen 7" />
+        <img src={furnitures[80].url} alt="Imagen 7" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.tvs[3].foto} alt="Imagen 8" />
+        <img src={furnitures[36].url} alt="Imagen 8" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.puertas[5].foto} alt="Imagen 8" />
+        <img src={furnitures[5].url} alt="Imagen 8" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.cocinas[0].foto} alt="Imagen 9" />
+        <img src={furnitures[0].url} alt="Imagen 9" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.otros[18].foto} alt="Imagen 10" />
+        <img src={furnitures[18].url} alt="Imagen 10" />
       </li>
     </ul>
   </div>
   <div class="right">
     <ul class="scroll__wrapper">
       <li class="scroll__img-container">
-        <img src={furnitures.puertas[8].foto} alt="Imagen 8" />
+        <img src={furnitures[8].url} alt="Imagen 8" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.comedores[1].foto} alt="Imagen 1" />
+        <img src={furnitures[15].url} alt="Imagen 1" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.cocinas[3].foto} alt="Imagen 2" />
+        <img src={furnitures[38].url} alt="Imagen 2" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.camas[2].foto} alt="Imagen 6" />
+        <img src={furnitures[25].url} alt="Imagen 6" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.puertas[1].foto} alt="Imagen 7" />
+        <img src={furnitures[18].url} alt="Imagen 7" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.otros[8].foto} alt="Imagen 4" />
+        <img src={furnitures[8].url} alt="Imagen 4" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.cocinas[14].foto} alt="Imagen 5" />
+        <img src={furnitures[14].url} alt="Imagen 5" />
       </li>
     </ul>
     <ul class="scroll__wrapper">
       <li class="scroll__img-container">
-        <img src={furnitures.camas[6].foto} alt="Imagen 6" />
+        <img src={furnitures[6].url} alt="Imagen 6" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.closets[3].foto} alt="Imagen 7" />
+        <img src={furnitures[39].url} alt="Imagen 7" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.puertas[3].foto} alt="Imagen 11" />
+        <img src={furnitures[35].url} alt="Imagen 11" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.tvs[2].foto} alt="Imagen 8" />
+        <img src={furnitures[24].url} alt="Imagen 8" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.cocinas[7].foto} alt="Imagen 9" />
+        <img src={furnitures[70].url} alt="Imagen 9" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.puertas[6].foto} alt="Imagen 12" />
+        <img src={furnitures[66].url} alt="Imagen 12" />
       </li>
       <li class="scroll__img-container">
-        <img src={furnitures.otros[17].foto} alt="Imagen 10" />
+        <img src={furnitures[17].url} alt="Imagen 10" />
       </li>
     </ul>
   </div>
@@ -109,6 +109,8 @@ import { furnitures } from "../lib/furnitures";
     display: flex;
     gap: 1rem;
     justify-content: space-between;
+    animation: expandFromCenter 0.5s ease 1.5s forwards;
+    opacity: 0;
   }
 
   .scroll__wrapper {

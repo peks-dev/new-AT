@@ -2,12 +2,21 @@ import { useState, useEffect } from "preact/hooks";
 import { furnitures } from "../../../lib/furnitures";
 import "./gallery.css";
 
-const furnituresCombined = [].concat(...Object.values(furnitures));
-
 function random() {
   return Math.random() - 0.5;
 }
-const furnituresRandomized = furnituresCombined.sort(random);
+const furnituresRandomized = furnitures.sort(random);
+const categories = [
+  "baños",
+  "recamara",
+  "comedores",
+  "tvs",
+  "oficina",
+  "puertas",
+  "cocinas",
+  "especiales",
+  "credenzas",
+];
 
 export default function Gallery() {
   const [displayedImages, setDisplayedImages] = useState([]);
@@ -29,7 +38,7 @@ export default function Gallery() {
     } else {
       // Cargar las imágenes correspondientes a la categoría del botón activo
       for (let i = 0; i < furnituresRandomized.length; i++) {
-        if (furnituresRandomized[i].categoria === activeButton) {
+        if (furnituresRandomized[i].category === activeButton) {
           newImages.push(furnituresRandomized[i]);
           furnituresRandomized.splice(i, 1);
         }
@@ -43,7 +52,7 @@ export default function Gallery() {
     setActiveButton(category);
   };
 
-  const categoryButtons = Object.keys(furnitures).map((category) => (
+  const categoryButtons = categories.map((category) => (
     <li className="gallery__btn-container" key={category}>
       <button
         className={`btn ${activeButton === category ? "active" : ""}`}
@@ -54,6 +63,7 @@ export default function Gallery() {
     </li>
   ));
 
+  // renderizado
   return (
     <div className="gallery">
       <ul className="gallery__btns-wrapper">
@@ -72,18 +82,26 @@ export default function Gallery() {
           {displayedImages.map((img, index) => (
             <picture
               className={`img-container img-container--gallery ${
-                img.categoria !== activeButton && activeButton !== "todos"
+                img.category !== activeButton && activeButton !== "todos"
                   ? "hidden"
                   : ""
               }`} // Oculta las imágenes que no corresponden al botón activo
               key={index}
-              data-category={img.categoria}
+              data-category={img.category}
             >
-              <img src={img.foto} alt={img.alt} className={"img"} />
+              <img
+                src={img.url}
+                alt={`${img.type} en madera de ${img.wood} color ${img.color} construido en Mérida Yucatán por Aguilar Talleres Carpinteria`}
+                className={"img"}
+              />
             </picture>
           ))}
         </div>
-        <button class={"btn active btn--gallery"} onClick={loadMoreImages}>
+        <button
+          class={"btn active btn--gallery"}
+          onClick={loadMoreImages}
+          type={"button"}
+        >
           cargar más
         </button>
       </div>

@@ -6,43 +6,63 @@ import Paragraph from "../layout/Paragraph.astro";
 <ul class="services__slider">
   <li class="services__slider-item">
     <picture class="services__slider-img-container" id="fabri-1">
+      <source
+        srcset={services.especial.imagesUrls[0].horizontal}
+        media="(min-width: 800px)"
+      />
       <img
         class="services__slider-img-wrap"
-        src={services.fabricacion.imagesUrls[0].tablet}
-        alt="foto de la esquina del mueble de madera hecho en parota"
+        src={services.especial.imagesUrls[0].vertical}
+        alt="muebles de madera hechos a medida hechos en Mérida Yucatán por Aguilar Talleres Carpinteria"
       />
     </picture>
     <div id="fabri-txt">
-      <h2 class="title--sm">{services.fabricacion.title}</h2>
-      <Paragraph>{services.fabricacion.description}</Paragraph>
+      <h2 class="title--sm">{services.especial.title}</h2>
+      <Paragraph>{services.especial.description}</Paragraph>
     </div>
     <picture class="services__slider-img-container" id="fabri-2">
+      <source
+        srcset={services.especial.imagesUrls[1].horizontal}
+        media="(min-width: 800px)"
+      />
       <img
         class="services__slider-img-wrap"
-        src={services.fabricacion.imagesUrls[1].tablet}
+        src={services.especial.imagesUrls[1].vertical}
         alt="foto frontal del mueble"
       />
     </picture>
     <picture class="services__slider-img-container" id="fabri-3">
+      <source
+        srcset={services.especial.imagesUrls[2].horizontal}
+        media="(min-width: 800px)"
+      />
       <img
         class="services__slider-img-wrap"
-        src={services.fabricacion.imagesUrls[2].tablet}
+        src={services.especial.imagesUrls[2].vertical}
         alt="foto frontal del mueble"
       />
     </picture>
   </li>
   <li class="services__slider-item">
     <picture class="services__slider-img-container" id="resi-1">
+      <source
+        srcset={services.residencial.imagesUrls[0].horizontal}
+        media="(min-width: 800px)"
+      />
       <img
         class="services__slider-img-wrap"
-        src={services.residencial.imagesUrls[0].mobile}
+        src={services.residencial.imagesUrls[0].vertical}
         alt="foto frontal del mueble"
       />
     </picture>
     <picture class="services__slider-img-container" id="resi-2">
+      <source
+        srcset={services.residencial.imagesUrls[1].horizontal}
+        media="(min-width: 800px)"
+      />
       <img
         class="services__slider-img-wrap"
-        src={services.residencial.imagesUrls[1].mobile}
+        src={services.residencial.imagesUrls[1].vertical}
         alt="foto frontal del mueble"
       />
     </picture>
@@ -51,39 +71,48 @@ import Paragraph from "../layout/Paragraph.astro";
       <Paragraph>{services.residencial.description}</Paragraph>
     </div>
     <picture class="services__slider-img-container" id="resi-3">
+      <source
+        srcset={services.residencial.imagesUrls[2].horizontal}
+        media="(min-width: 800px)"
+      />
       <img
         class="services__slider-img-wrap"
-        src={services.residencial.imagesUrls[2].mobile}
+        src={services.residencial.imagesUrls[2].vertical}
         alt="foto frontal del mueble"
       />
     </picture>
   </li>
   <li class="services__slider-item">
     <picture class="services__slider-img-container" id="empre-1">
+      <source
+        media="(min-width: 800px)"
+        srcset={services.empresarial.imagesUrls[0].horizontal}
+      />
       <img
         class="services__slider-img-wrap"
-        src={services.empresarial.imagesUrls[0].mobile}
+        src={services.empresarial.imagesUrls[0].vertical}
         alt="foto frontal del mueble"
       />
     </picture>
     <picture class="services__slider-img-container" id="empre-2">
+      <source
+        srcset={services.empresarial.imagesUrls[1].horizontal}
+        media="(min-width: 800px)"
+      />
       <img
         class="services__slider-img-wrap"
-        src={services.empresarial.imagesUrls[1].mobile}
+        src={services.empresarial.imagesUrls[1].vertical}
         alt="foto frontal del mueble"
       />
     </picture>
     <picture class="services__slider-img-container" id="empre-3">
-      <img
-        class="services__slider-img-wrap"
-        src={services.empresarial.imagesUrls[2].mobile}
-        alt="foto frontal del mueble"
+      <source
+        srcset={services.empresarial.imagesUrls[2].horizontal}
+        media="(min-width: 800px)"
       />
-    </picture>
-    <picture class="services__slider-img-container" id="empre-4">
       <img
         class="services__slider-img-wrap"
-        src={services.empresarial.imagesUrls[3].mobile}
+        src={services.empresarial.imagesUrls[2].vertical}
         alt="foto frontal del mueble"
       />
     </picture>
@@ -190,17 +219,13 @@ import Paragraph from "../layout/Paragraph.astro";
   }
   #empre-1 {
     grid-column: 1 / 2;
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
   }
   #empre-2 {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
   }
-  #empre-2 {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-  }
-  #empre-4 {
+  #empre-3 {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
   }

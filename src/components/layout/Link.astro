@@ -3,11 +3,12 @@ interface Props {
   urlLink: string;
   variant?: string;
   align: "left" | "center" | "right" | "auto";
+  open: "_blank" | "_self";
 }
-const { urlLink, variant, align } = Astro.props;
+const { urlLink, variant, align, open } = Astro.props;
 ---
 
-<a href={urlLink} class:list={variant}><slot /></a>
+<a href={urlLink} target={open} rel="noopener" class:list={variant}><slot /></a>
 <style define:vars={{ align }}>
   a {
     font-family: var(--font-light);

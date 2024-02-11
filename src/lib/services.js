@@ -1,23 +1,23 @@
 export const services = {
-  fabricacion: {
-    tabName: "fabricacion",
-    title: "una seccion",
-    description: "nos enfocamos en un espacio determinado de tu hogar",
+  especial: {
+    tabName: "especial",
+    title: "muebles a medida ",
+    description: "un diseño fuera de lo convencional o poco común",
     imagesUrls: [
       {
-        mobile: "/assets/services/fabricacion/mobile/fab-1-sml.webp",
-        tablet: "/assets/services/fabricacion/tablet/fab-1-md.webp",
-        desktop: "/assets/services/fabricacion/desktop/fab-1-lg.webp",
+        // grid 1
+        vertical: "/assets/imgs-trabajos/especiales/especial-12.webp",
+        horizontal: "/assets/imgs-trabajos/especiales/especial-36.webp",
       },
       {
-        mobile: "/assets/services/fabricacion/mobile/fab-2-sml.webp",
-        tablet: "/assets/services/fabricacion/tablet/fab-2-md.webp",
-        desktop: "/assets/services/fabricacion/desktop/fab-2-lg.webp",
+        // grid 2
+        vertical: "/assets/imgs-trabajos/especiales/especial-13.webp",
+        horizontal: "/assets/imgs-trabajos/especiales/especial-20.webp",
       },
       {
-        mobile: "/assets/services/fabricacion/mobile/fab-3-sml.webp",
-        tablet: "/assets/services/fabricacion/tablet/fab-3-md.webp",
-        desktop: "/assets/services/fabricacion/desktop/fab-3-lg.webp",
+        // grid 3
+        vertical: "/assets/imgs-trabajos/especiales/especial-30.webp",
+        horizontal: "/assets/imgs-trabajos/especiales/especial-28.webp",
       },
     ],
   },
@@ -27,19 +27,19 @@ export const services = {
     description: "vestimos varias o todas las partes de tu casa",
     imagesUrls: [
       {
-        mobile: "/assets/services/residencial/mobile/resi-1-sm.png",
-        tablet: "/assets/services/residencial/tablet/resi-1-md.webp",
-        desktop: "/assets/services/residencial/desktop/resi-1-lx.webp",
+        // grid 1
+        vertical: "/assets/imgs-trabajos/cocinas/cocina-12.webp",
+        horizontal: "/assets/imgs-trabajos/camas/cama-2.webp",
       },
       {
-        mobile: "/assets/services/residencial/mobile/resi-2-sm.png",
-        tablet: "/assets/services/residencial/tablet/resi-2-md.webp",
-        desktop: "/assets/services/residencial/desktop/resi-2-lx.webp",
+        // grid 2
+        vertical: "/assets/imgs-trabajos/puertas/puerta-4.webp",
+        horizontal: "/assets/imgs-trabajos/closets/closet-9.webp",
       },
       {
-        mobile: "/assets/services/residencial/mobile/resi-3-sm.png",
-        tablet: "/assets/services/residencial/tablet/resi-3-md.webp",
-        desktop: "/assets/services/residencial/desktop/resi-3-lx.webp",
+        // grid 3
+        vertical: "/assets/imgs-trabajos/closets/closet-10.webp",
+        horizontal: "/assets/imgs-trabajos/comedores/comedor-2.webp",
       },
     ],
   },
@@ -49,24 +49,22 @@ export const services = {
     description: "vestir viviendas hasta proyectos de gran envergadura",
     imagesUrls: [
       {
-        mobile: "/assets/services/empresarial/mobile/emp-1-sm.jpeg",
-        tablet: "/assets/services/empresarial/tablet/emp-1-md.webp",
-        desktop: "/assets/services/empresarial/desktop/emp-1-lx.webp",
+        // grid 1
+        vertical: "/assets/imgs-trabajos/proyectos/orion/orion-2.webp",
+        horizontal:
+          "/assets/imgs-trabajos/proyectos/consultorio/consultorio-2.webp",
       },
       {
-        mobile: "/assets/services/empresarial/mobile/emp-2-sm.jpeg",
-        tablet: "/assets/services/empresarial/tablet/emp-2-md.webp",
-        desktop: "/assets/services/empresarial/desktop/emp-2-lx.webp",
+        // grid 2
+        vertical: "/assets/imgs-trabajos/proyectos/orion/orion-4.webp",
+        horizontal:
+          "/assets/imgs-trabajos/proyectos/consultorio/consultorio-4.webp",
       },
       {
-        mobile: "/assets/services/empresarial/mobile/emp-3-sm.jpeg",
-        tablet: "/assets/services/empresarial/tablet/emp-3-md.webp",
-        desktop: "/assets/services/empresarial/desktop/emp-3-lx.webp",
-      },
-      {
-        mobile: "/assets/services/empresarial/mobile/emp-4-sm.jpeg",
-        tablet: "/assets/services/empresarial/tablet/emp-4-md.webp",
-        desktop: "/assets/services/empresarial/desktop/emp-4-lx.webp",
+        // grid 3
+        vertical: "/assets/imgs-trabajos/proyectos/orion/orion-1.webp",
+        horizontal:
+          "/assets/imgs-trabajos/proyectos/consultorio/consultorio-5.webp",
       },
     ],
   },

@@ -3,12 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import VerticalScroll from "../components/VerticalScroll.astro";
 import HeaderHome from "../components/HeaderHome.astro";
 import Overlay from "../components/Overlay.astro";
+import Indicator from "../components/Indicator.astro";
 ---
 
 <Layout title="Aguilar Talleres">
   <section class="home-wrapper">
     <VerticalScroll />
     <HeaderHome />
+    <Indicator text="menu" variant="indicator--home" />
     <Overlay />
   </section>
 </Layout>

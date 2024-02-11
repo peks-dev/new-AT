@@ -3,18 +3,18 @@ import Btn from "../layout/Btn.astro";
 import { services } from "../../lib/services";
 ---
 
-<ul class="services__btns-wrapper">
-  <li class="services__btn-container active">
-    <Btn variant="active btn--slider-tab">{services.fabricacion.tabName}</Btn>
-  </li>
-  <li class="services__btn-container">
+<nav class="services__btns-wrapper">
+  <div class="services__btn-container active">
+    <Btn variant="active btn--slider-tab">{services.especial.tabName}</Btn>
+  </div>
+  <div class="services__btn-container">
     <Btn variant="btn--slider-tab">{services.residencial.tabName}</Btn>
-  </li>
-  <li class="services__btn-container">
+  </div>
+  <div class="services__btn-container">
     <Btn variant="btn--slider-tab">{services.empresarial.tabName}</Btn>
-  </li>
+  </div>
   <div class="services__btns-bg"></div>
-</ul>
+</nav>
 
 <script src="./sliderTabs.js"></script>
 
@@ -27,7 +27,7 @@ import { services } from "../../lib/services";
     position: relative;
   }
   .services__btn-container {
-    flex-grow: 1;
+    flex: 1;
     position: relative;
     z-index: 2;
   }

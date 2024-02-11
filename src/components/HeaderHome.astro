@@ -9,7 +9,7 @@ import Lapalapa from "./icons/partners/Lapalapa.astro";
   <header class="header-container">
     <h1 class="header__subtitle">carpinteria</h1>
     <p class="header__title title--xlg">aguilar talleres</p>
-    <span class="header__location">Mérida Yucatán México</span>
+    <span class="header__location">Mérida , Yucatán , México</span>
     <ul class="header__icons-wrapper">
       <li class="header__icon-container">
         <Anahuac />
@@ -37,6 +37,8 @@ import Lapalapa from "./icons/partners/Lapalapa.astro";
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 3;
+        opacity: 0;
+       animation: fade-in 0.5s ease-in-out 2.5s forwards;
     }
     .header-container{
         display: flex;
@@ -66,6 +68,7 @@ import Lapalapa from "./icons/partners/Lapalapa.astro";
     display: flex;
     max-height: 8rem;
     border-top: var(--global-border-size) solid var(--global-border-color);
+    color: var(--primary-light);
     
   }
   .header__icon-container {
