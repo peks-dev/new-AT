@@ -76,4 +76,14 @@ export const pageSeoProperties = {
     socialImgAlt:
       "muebles de madera tzalam color nogal en consultorio infantil hechos por Aguilar Talleres Carpinteria en Mérida Yucatán",
   },
+  asistencia: {
+    sitePath: "/asistencia",
+    title: "Asistencia | AT",
+    socialTitle: "Asistencia personalizada 24/7 Aguilar Talleres",
+    description:
+      "Encuentra la informacion que necesites sobre la carpinteria a traves de nuestro chatboot Maderito",
+    socialImgUrl: "/assets/imgs-trabajos/puertas/puerta-21.webp",
+    socialImgAlt:
+      "puertas en madera de caobilla color nogal hechas por Aguilar Talleres Carpinteria en Mérida Yucatán",
+  },
 };
