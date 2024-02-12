@@ -6,9 +6,18 @@ import Indicator from "../components/Indicator.astro";
 // icons svgs
 import Planta2 from "../components/icons/Planta2.astro";
 import Done from "../components/icons/Done.astro";
+
+import { pageSeoProperties } from "../lib/seoData";
 ---
 
-<Layout title="proceso | AT">
+<Layout
+  title={pageSeoProperties.proceso.title}
+  socialTitle={pageSeoProperties.proceso.socialTitle}
+  description={pageSeoProperties.proceso.description}
+  socialImg={pageSeoProperties.proceso.socialImgUrl}
+  socialImgAlt={pageSeoProperties.proceso.socialImgAlt}
+  sitePath={pageSeoProperties.proceso.sitePath}
+>
   <div class="process">
     <section class="process__step">
       <div class="process__start">

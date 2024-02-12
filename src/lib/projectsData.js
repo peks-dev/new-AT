@@ -29,6 +29,8 @@ export const projectsData = [
         category: "cocinas",
       },
     ],
+    // seo data
+    sitePath: "/proyectos/1",
   },
   {
     id: "2",
@@ -71,6 +73,8 @@ export const projectsData = [
         category: "especial",
       },
     ],
+    // seo data
+    sitePath: "/proyectos/2",
   },
   {
     id: "3",
@@ -112,5 +116,7 @@ export const projectsData = [
         category: "especial",
       },
     ],
+    // seo data
+    sitePath: "/proyectos/3",
   },
 ];

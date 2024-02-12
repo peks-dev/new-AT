@@ -2,9 +2,17 @@
 import Layout from "../layouts/Layout.astro";
 import Gallery from "../components/preact/gallery/Gallery";
 import Lightbox from "../components/lightbox/Lightbox.astro";
+import { pageSeoProperties } from "../lib/seoData";
 ---
 
-<Layout title="galleria | AT">
+<Layout
+  title={pageSeoProperties.galeria.title}
+  socialTitle={pageSeoProperties.galeria.socialTitle}
+  description={pageSeoProperties.galeria.description}
+  socialImg={pageSeoProperties.galeria.socialImgUrl}
+  socialImgAlt={pageSeoProperties.galeria.socialImgAlt}
+  sitePath={pageSeoProperties.galeria.sitePath}
+>
   <div class="gallery-wrapper">
     <header class="gallery__header">
       <h1 class="title--lg">galleria de muebles</h1>

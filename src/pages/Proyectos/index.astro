@@ -1,9 +1,17 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import SliderContainer from "../../components/slider-projects/SliderContainer.astro";
+import { pageSeoProperties } from "../../lib/seoData";
 ---
 
-<Layout title="proyectos | AT">
+<Layout
+  title={pageSeoProperties.proyectos.title}
+  socialTitle={pageSeoProperties.proyectos.socialTitle}
+  description={pageSeoProperties.proyectos.description}
+  socialImg={pageSeoProperties.proyectos.socialImgUrl}
+  socialImgAlt={pageSeoProperties.proyectos.socialImgAlt}
+  sitePath={pageSeoProperties.proyectos.sitePath}
+>
   <div class="proyect-container">
     <header class="proyect__header">
       <h1 class="title--md">ultimos proyectos</h1>

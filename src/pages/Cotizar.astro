@@ -1,8 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { pageSeoProperties } from "../lib/seoData";
 ---
 
-<Layout title="cotizacion | AT">
+<Layout
+  title={pageSeoProperties.cotizar.title}
+  socialTitle={pageSeoProperties.cotizar.socialTitle}
+  description={pageSeoProperties.cotizar.description}
+  socialImg={pageSeoProperties.cotizar.socialImgUrl}
+  socialImgAlt={pageSeoProperties.cotizar.socialImgAlt}
+  sitePath={pageSeoProperties.cotizar.sitePath}
+>
   <section class="cotizacion-wrapper">
     <iframe
       src="https://form.jotform.com/230016463356046"

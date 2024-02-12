@@ -18,14 +18,21 @@ export async function getStaticPaths() {
     };
   });
 }
-// user project selected
+// user project selectedd
 const { id } = Astro.params;
 
 // Search project in data
 const projectSelected = projectsData.find((item) => item.id === id);
 ---
 
-<Layout title={projectSelected.name}>
+<Layout
+  title={projectSelected.name}
+  socialTitle={`proyecto ${projectSelected.name}`}
+  description={projectSelected.description}
+  sitePath={projectSelected.sitePath}
+  socialImg={projectSelected.images[0].url}
+  socialImgAlt={projectSelected.images[0].alt}
+>
   <article class="project-wrapper">
     <ProjectTopBar title={projectSelected.name} />
     <div class="project__content-wrapper">

@@ -1,9 +1,15 @@
 ---
 interface Props {
+  sitePath: string;
   title: string;
+  socialTitle: string;
+  description: string;
+  socialImg: string;
+  socialImgAlt: string;
 }
 
-const { title } = Astro.props;
+const { title, socialImg, description, socialImgAlt, socialTitle, sitePath } =
+  Astro.props;
 
 import "../styles/reset.css";
 import "../styles/global.css";
@@ -21,9 +27,33 @@ import Loader from "../components/Loader.astro";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- icono responsive -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- SEO TAGS -->
+    <meta name="description" content={description} />
+    <!-- Control the behavior of search engine crawling and indexing -->
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+
+    <!-- Geo tags -->
+    <meta name="ICBM" content="20.9671, -89.6243" />
+    <meta name="geo.position" content="20.9671;-89.6243" />
+    <meta name="geo.region" content="MX-YUC" />
+    <meta name="geo.placename" content="Mérida, Yucatán" />
+
+    <!-- social link tags -->
+    <meta property="og:url" content=`https://aguilartalleres.com${sitePath} ` />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:image" content={socialImg} />
+    <meta property="og:image:alt" content={socialImgAlt} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Aguilar Talleres Carpinteria" />
+    <meta property="og:locale" content="es_MX" />
+
     <meta name="generator" content={Astro.generator} />
     <ViewTransitions />
     <title>{title}</title>

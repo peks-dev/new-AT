@@ -1,9 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/layout/Link.astro";
+
+import { pageSeoProperties } from "../lib/seoData";
 ---
 
-<Layout title="contacto | AT">
+<Layout
+  title={pageSeoProperties.contacto.title}
+  socialTitle={pageSeoProperties.contacto.socialTitle}
+  description={pageSeoProperties.contacto.description}
+  socialImg={pageSeoProperties.contacto.socialImgUrl}
+  socialImgAlt={pageSeoProperties.contacto.socialImgAlt}
+  sitePath={pageSeoProperties.contacto.sitePath}
+>
   <section class="contact">
     <div class="contact__content">
       <h1 class="contact__title title--lg">

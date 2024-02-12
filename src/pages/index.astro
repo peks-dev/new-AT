@@ -4,9 +4,17 @@ import VerticalScroll from "../components/VerticalScroll.astro";
 import HeaderHome from "../components/HeaderHome.astro";
 import Overlay from "../components/Overlay.astro";
 import Indicator from "../components/Indicator.astro";
+import { pageSeoProperties } from "../lib/seoData.js";
 ---
 
-<Layout title="Aguilar Talleres">
+<Layout
+  title={pageSeoProperties.home.title}
+  socialTitle={pageSeoProperties.home.socialTitle}
+  description={pageSeoProperties.home.description}
+  socialImg={pageSeoProperties.home.socialImgUrl}
+  socialImgAlt={pageSeoProperties.home.socialImgAlt}
+  sitePath={pageSeoProperties.home.sitePath}
+>
   <section class="home-wrapper">
     <VerticalScroll />
     <HeaderHome />

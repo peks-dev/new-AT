@@ -3,9 +3,17 @@
 import Layout from "../layouts/Layout.astro";
 import SliderHeader from "../components/slider-services/SliderHeader.astro";
 import SliderContent from "../components/slider-services/SliderContent.astro";
+import { pageSeoProperties } from "../lib/seoData";
 ---
 
-<Layout title="servicios">
+<Layout
+  title={pageSeoProperties.servicio.title}
+  socialTitle={pageSeoProperties.servicio.socialTitle}
+  description={pageSeoProperties.servicio.description}
+  socialImg={pageSeoProperties.servicio.socialImgUrl}
+  socialImgAlt={pageSeoProperties.servicio.socialImgAlt}
+  sitePath={pageSeoProperties.servicio.sitePath}
+>
   <section class="services">
     <header class="services__header">
       <div class="services__title-wrapper">
