@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /carrito/
+Disallow: /pago/
+
+User-agent: Googlebot
+Disallow: /admin/
+Disallow: /carrito/
+Disallow: /pago/
