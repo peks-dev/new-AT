@@ -8,7 +8,7 @@ import LogoSite from "../../icons/LogoSite.astro";
     <Btn><a href="/Cotizar">cotizar</a></Btn>
   </li>
   <li class="navbar__btn-wrapper">
-    <Btn variant="btn--logo-site" id="menu-btn">
+    <Btn variant="btn--logo-site" id="menu-btn" name="menu principal">
       <LogoSite />
     </Btn>
   </li>
@@ -31,6 +31,13 @@ import LogoSite from "../../icons/LogoSite.astro";
   .navbar__btn-wrapper {
     flex: 1 1 33.33%;
     color: var(--secundary-dark);
+  }
+
+  .navbar__btn-wrapper a {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-content: center;
   }
 
   /* logo - site */

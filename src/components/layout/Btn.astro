@@ -3,12 +3,19 @@ interface Props {
   variant?: string;
   id?: string;
   toolTip?: string;
+  name?: string;
 }
 
-const { variant, id, toolTip } = Astro.props;
+const { variant, id, toolTip, name } = Astro.props;
 ---
 
-<button class:list=`btn ${variant}` id={id} type="button" title={toolTip}>
+<button
+  class:list=`btn ${variant}`
+  id={id}
+  type="button"
+  title={toolTip}
+  aria-label={name}
+>
   <slot />
 </button>
 

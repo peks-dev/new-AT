@@ -14,10 +14,10 @@ import { pageSeoProperties } from "../lib/seoData.js";
   <section class="asistencia-wrapper">
     <div class="chatbot-container">
       <iframe
-      src="https://www.chatbase.co/chatbot-iframe/5w3cGCBu7Pubzm-83qhVe"      
-      frameborder="0"
-      class="chatbot__embed"></iframe>
-    </div> 
+        src="https://widget.writesonic.com/CDN/index.html?service-base-url=https://api.botsonic.ai&token=3cc0aeca-441d-4c76-b706-6f9124fcc328&base-origin=https://bot.writesonic.com&instance-name=Botsonic&standalone=true&page-url=https://bot.writesonic.com/2ffdf0d1-710a-4247-8044-828415520c7b?t=connect&workspace_id=5f339cc7-8f34-4e3f-a2fc-24c50d497eba"
+        class="chatbot__embed"
+        loading="lazy"></iframe>
+    </div>
   </section>
 </Layout>
 
@@ -29,16 +29,19 @@ import { pageSeoProperties } from "../lib/seoData.js";
     align-items: top;
     justify-content: center;
   }
-  .chatbot-container{
+
+  .chatbot-container {
+    width: 100%;
+    height: 100%;
+  }
+  /* .chatbot-container {
     border: var(--global-border-size) solid var(--global-border-color);
     padding: var(--global-margin);
     width: 90%;
     height: 85%;
-  }
+  } */
   .chatbot__embed {
     width: 100%;
     height: 100%;
-   
   }
-  
 </style>
