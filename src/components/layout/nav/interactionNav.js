@@ -3,6 +3,7 @@ document.addEventListener("astro:page-load", () => {
   const links = document.querySelectorAll(".nav-links__item a");
   const menuBtn = document.getElementById("menu-btn");
   const navContainer = document.querySelector(".nav-container");
+  const menuIndicator = document.querySelector(".indicator--home");
 
   function openMenu() {
     navContainer.classList.toggle("active");
@@ -17,8 +18,6 @@ document.addEventListener("astro:page-load", () => {
     }
   }
 
-  console.log(window.location.pathname);
-
   // señalar link activo
   links.forEach((link) => {
     if (link.getAttribute("href") === window.location.pathname) {
@@ -28,4 +27,7 @@ document.addEventListener("astro:page-load", () => {
 
   menuBtn.addEventListener("click", openMenu);
   document.addEventListener("keydown", handleKeyPress);
+  if (menuIndicator) {
+    menuIndicator.addEventListener("click", openMenu);
+  }
 });
