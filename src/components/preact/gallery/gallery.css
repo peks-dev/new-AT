@@ -3,6 +3,7 @@
   overflow-y: scroll;
   position: relative;
 }
+
 .gallery__btns-wrapper {
   display: flex;
   align-items: center;
@@ -17,11 +18,13 @@
   transform: translateX(100%);
   animation: slideInRight 1s ease-in-out 1.2s forwards;
 }
+
 @media screen and (min-width: 1000px) {
   .gallery__btns-wrapper {
     justify-content: space-around;
   }
 }
+
 .gallery__btn-container {
   flex: 1 0 10rem;
   height: 100%;
@@ -32,21 +35,95 @@
   display: none;
 }
 
-/* content gallery styles */
 .gallery__content {
   width: 100%;
 }
+
 .gallery__imgs-wrapper {
-  flex: 1 1 80%;
   width: 100%;
-  padding-left: var(--global-margin);
-  padding-right: var(--global-margin);
+  padding: var(--global-margin);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(max(15rem, 15%), 1fr));
-  gap: 10px;
-  padding-top: var(--global-margin);
-  padding-bottom: var(--global-margin);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 8px;
 }
-.hidden {
-  display: none;
+
+.img-container--gallery {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+}
+
+.img-container--gallery .img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+  will-change: transform;
+}
+
+.img-container--gallery:hover .img {
+  transform: scale(1.06);
+}
+
+.img-container--gallery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(85, 57, 34, 0.4) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.img-container--gallery:hover::after {
+  opacity: 1;
+}
+
+.gallery__load-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: var(--global-margin);
+  border-top: var(--global-border-size) solid var(--global-border-color);
+}
+
+.btn--gallery {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 16rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.gallery__counter {
+  font-family: var(--font-light);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--primary-light);
+  letter-spacing: 0.05rem;
+}
+
+.gallery__counter--done {
+  color: var(--secundary-dark);
+  text-transform: uppercase;
+  font-family: var(--font-regular);
+  letter-spacing: 0.1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .gallery__imgs-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .gallery__imgs-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
 }

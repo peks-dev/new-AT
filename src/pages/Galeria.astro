@@ -38,18 +38,19 @@ import { pageSeoProperties } from "../lib/seoData";
     align-items: center;
     justify-content: space-between;
     padding: var(--global-margin);
+    border-bottom: var(--global-border-size) solid var(--global-border-color);
   }
   .gallery__header h1 {
     text-align: right;
     order: 2;
   }
   .gallery__header p {
-    font-size: clamp(1.5rem, 3vw, 2.4rem);
-    width: calc((100vw - var(--nav-height)) / 2);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
     max-width: 50rem;
     font-family: var(--font-light);
-    text-align: center;
+    text-align: left;
     order: 1;
     width: fit-content;
+    color: var(--primary-light);
   }
 </style>

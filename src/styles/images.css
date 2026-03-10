@@ -22,5 +22,5 @@
 }
 
 .img-container--gallery {
-  max-height: 40rem;
+  aspect-ratio: 4 / 3;
 }

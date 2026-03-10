@@ -1,11 +1,8 @@
-import { useState, useEffect } from "preact/hooks";
+import { useState, useMemo, useCallback } from "preact/hooks";
 import { furnitures } from "../../../lib/furnitures";
 import "./gallery.css";
 
-function random() {
-  return Math.random() - 0.5;
-}
-const furnituresRandomized = furnitures.sort(random);
+const ITEMS_PER_PAGE = 12;
 const categories = [
   "baños",
   "recamara",
@@ -18,92 +15,93 @@ const categories = [
   "credenzas",
 ];
 
-export default function Gallery() {
-  const [displayedImages, setDisplayedImages] = useState([]);
-  const [activeButton, setActiveButton] = useState("todos");
+const shuffled = [...furnitures].sort(() => Math.random() - 0.5);
 
-  useEffect(() => {
-    loadMoreImages();
+export default function Gallery() {
+  const [activeCategory, setActiveCategory] = useState("todos");
+  const [page, setPage] = useState(1);
+
+  const filteredImages = useMemo(() => {
+    if (activeCategory === "todos") return shuffled;
+    return shuffled.filter((img) => img.category === activeCategory);
+  }, [activeCategory]);
+
+  const displayedImages = useMemo(() => {
+    return filteredImages.slice(0, page * ITEMS_PER_PAGE);
+  }, [filteredImages, page]);
+
+  const hasMore = displayedImages.length < filteredImages.length;
+
+  const handleCategoryChange = useCallback((category) => {
+    setActiveCategory(category);
+    setPage(1);
   }, []);
 
-  const loadMoreImages = () => {
-    const newImages = [];
+  const loadMore = useCallback(() => {
+    setPage((p) => p + 1);
+  }, []);
 
-    if (activeButton === "todos") {
-      // Cargar las 12 primeras imágenes si el botón activo es "todos"
-      for (let i = 0; i < 12 && i < furnituresRandomized.length; i++) {
-        newImages.push(furnituresRandomized[i]);
-      }
-      furnituresRandomized.splice(0, newImages.length);
-    } else {
-      // Cargar las imágenes correspondientes a la categoría del botón activo
-      for (let i = 0; i < furnituresRandomized.length; i++) {
-        if (furnituresRandomized[i].category === activeButton) {
-          newImages.push(furnituresRandomized[i]);
-          furnituresRandomized.splice(i, 1);
-        }
-      }
-    }
-
-    setDisplayedImages((prevImages) => [...prevImages, ...newImages]);
-  };
-
-  const handleButtonClick = (category) => {
-    setActiveButton(category);
-  };
-
-  const categoryButtons = categories.map((category) => (
-    <li className="gallery__btn-container" key={category}>
-      <button
-        className={`btn ${activeButton === category ? "active" : ""}`}
-        onClick={() => handleButtonClick(category)}
-      >
-        {category}
-      </button>
-    </li>
-  ));
-
-  // renderizado
   return (
     <div className="gallery">
       <ul className="gallery__btns-wrapper">
         <li className="gallery__btn-container">
           <button
-            className={`btn ${activeButton === "todos" ? "active" : ""}`}
-            onClick={() => handleButtonClick("todos")}
+            className={`btn ${activeCategory === "todos" ? "active" : ""}`}
+            onClick={() => handleCategoryChange("todos")}
           >
             todos
           </button>
         </li>
-        {categoryButtons}
+        {categories.map((category) => (
+          <li className="gallery__btn-container" key={category}>
+            <button
+              className={`btn ${activeCategory === category ? "active" : ""}`}
+              onClick={() => handleCategoryChange(category)}
+            >
+              {category}
+            </button>
+          </li>
+        ))}
       </ul>
-      <div className={"gallery__content"}>
-        <div className="gallery__imgs-wrapper" id={"imgs-wrapper"}>
+      <div className="gallery__content">
+        <div className="gallery__imgs-wrapper" id="imgs-wrapper">
           {displayedImages.map((img, index) => (
             <picture
-              className={`img-container img-container--gallery ${
-                img.category !== activeButton && activeButton !== "todos"
-                  ? "hidden"
-                  : ""
-              }`} // Oculta las imágenes que no corresponden al botón activo
-              key={index}
+              className="img-container img-container--gallery"
+              key={`${img.url}-${index}`}
               data-category={img.category}
             >
               <img
                 src={img.url}
                 alt={`${img.type} en madera de ${img.wood} color ${img.color} construido en Mérida Yucatán por Aguilar Talleres Carpinteria`}
-                className={"img"}
+                className="img"
+                loading="lazy"
+                decoding="async"
               />
             </picture>
           ))}
         </div>
-        <button
-          class={"btn active btn--gallery"}
-          onClick={loadMoreImages}
-          type={"button"}
-        >
-          cargar más
-        </button>
+        {hasMore && (
+          <div className="gallery__load-more">
+            <button
+              className="btn active btn--gallery"
+              onClick={loadMore}
+              type="button"
+            >
+              cargar más
+            </button>
+            <span className="gallery__counter">
+              {displayedImages.length} / {filteredImages.length}
+            </span>
+          </div>
+        )}
+        {!hasMore && filteredImages.length > ITEMS_PER_PAGE && (
+          <div className="gallery__load-more">
+            <span className="gallery__counter gallery__counter--done">
+              {filteredImages.length} imágenes
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );
