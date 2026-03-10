@@ -28,6 +28,7 @@ document.addEventListener("astro:page-load", () => {
     updateCounter();
     lightbox.classList.add("active");
     document.body.style.overflow = "hidden";
+    closeBtn.focus();
   }
 
   function closeLightbox() {

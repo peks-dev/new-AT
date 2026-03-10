@@ -12,15 +12,11 @@
   height: auto;
   transition: transform 0.4s ease-in-out;
 }
-.img-container:hover img {
+.img-container--project:hover img {
   transform: scale(1.2);
 }
 
 .img-container--project {
   border: var(--global-border-size) solid var(--global-border-color);
   padding: 0.4rem;
-}
-
-.img-container--gallery {
-  aspect-ratio: 4 / 3;
 }

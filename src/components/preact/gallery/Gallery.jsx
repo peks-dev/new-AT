@@ -68,7 +68,7 @@ export default function Gallery() {
           {displayedImages.map((img, index) => (
             <picture
               className="img-container img-container--gallery"
-              key={`${img.url}-${index}`}
+              key={img.url}
               data-category={img.category}
             >
               <img

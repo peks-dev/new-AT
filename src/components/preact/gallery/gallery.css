@@ -58,11 +58,11 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease-in-out;
-  will-change: transform;
 }
 
 .img-container--gallery:hover .img {
   transform: scale(1.06);
+  will-change: transform;
 }
 
 .img-container--gallery::after {
@@ -116,14 +116,14 @@
 
 @media screen and (min-width: 768px) {
   .gallery__imgs-wrapper {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 10px;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .gallery__imgs-wrapper {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 12px;
   }
 }
