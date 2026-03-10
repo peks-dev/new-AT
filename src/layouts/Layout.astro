@@ -17,7 +17,7 @@ import "../styles/headings.css";
 import "../styles/animations.css";
 import "../styles/images.css";
 
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 import NavMain from "../components/layout/nav/NavMain.astro";
 import Loader from "../components/Loader.astro";
@@ -57,7 +57,7 @@ import Loader from "../components/Loader.astro";
     <meta property="og:locale" content="es_MX" />
 
     <meta name="generator" content={Astro.generator} />
-    <ViewTransitions />
+    <ClientRouter />
     <title>{title}</title>
   </head>
   <body>
